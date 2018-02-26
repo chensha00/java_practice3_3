@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="entity.UserAccount">
+    <resultMap id="userAccountMap" type="entity.UserAccount">
+        <id property="id" column="ID" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result property="userName" column="USER_NAME" jdbcType="VARCHAR"/>
+        <result property="userPassWord" column="USER_PASSWORD" jdbcType="VARCHAR"/>
+        <result property="payPassWord" column="PAY_PASSWORD" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="money" column="MONEY" jdbcType="DECIMAL"/>
+        <result property="phoneNum" column="PHONE_NUM" jdbcType="VARCHAR"/>
+        <result property="address" column="ADDRESS" jdbcType="VARCHAR"/>
+        <result property="registerTime" column="REGIST_TIME" jdbcType="TIMESTAMP"/>
+        <result property="isBuyer" column="IS_BUYER" jdbcType="TINYINT"/>
+        <result property="isFreezing" column="IS_FREEZING" jdbcType="TINYINT"/>
+        <result property="isLost" column="IS_LOST" jdbcType="TINYINT"/>
+        <result property="isDelete" column="IS_DELETE" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <select id="findAccountById" resultMap="userAccountMap">
+        SELECT ID,USER_NAME,USER_PASSWORD,PAY_PASSWORD,MONEY,PHONE_NUM,ADDRESS,REGIST_TIME,IS_BUYER,IS_FREEZING,IS_LOST,IS_DELETE
+        FROM USER_ACCOUNT WHERE ID = ${id}
+    </select>
+
+    <insert id="addAccount">
+        INSERT INTO USER_ACCOUNT(USER_NAME,USER_PASSWORD,PAY_PASSWORD,MONEY,PHONE_NUM,ADDRESS,REGIST_TIME,IS_BUYER,IS_FREEZING,IS_LOST,IS_DELETE)
+        VALUES (#{userName,jdbcType=VARCHAR},
+        #{userPassWord,jdbcType=VARCHAR},#{payPassWord,jdbcType=INTEGER},#{money,jdbcType=DECIMAL},#{phoneNum,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR},#{registerTime,jdbcType=TIMESTAMP},
+        #{isBuyer,jdbcType=TINYINT},#{isFreezing,jdbcType=TINYINT},#{isLost,jdbcType=TINYINT},#{isDelete,jdbcType=TINYINT})
+    </insert>
+
+    <update id="updateAccountById">
+        UPDATE USER_ACCOUNT
+        SET  USER_NAME=#{userName,jdbcType=VARCHAR},USER_PASSWORD=#{userPassWord,jdbcType=VARCHAR},PAY_PASSWORD=#{payPassWord,jdbcType=INTEGER},
+        MONEY=#{money,jdbcType=DECIMAL},PHONE_NUM=#{phoneNum,jdbcType=VARCHAR},ADDRESS=#{address,jdbcType=VARCHAR},REGIST_TIME=#{registerTime,jdbcType=TIMESTAMP},
+        IS_BUYER=#{isBuyer,jdbcType=TINYINT},IS_FREEZING=#{isFreezing,jdbcType=TINYINT},IS_LOST=#{isLost,jdbcType=TINYINT},IS_DELETE=#{isDelete,jdbcType=TINYINT}
+        WHERE ID=${id}
+    </update>
+
+    <delete id="deleteAccountById">
+        DELETE FROM USER_ACCOUNT WHERE ID=${id}
+    </delete>
+
+</mapper>
