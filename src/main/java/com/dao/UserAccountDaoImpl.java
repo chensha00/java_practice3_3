@@ -29,6 +29,9 @@ public class UserAccountDaoImpl extends BaseDaoImpl<UserAccount>{
 
     public static void main(String[] args) {
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
-//        UserAccountDaoImpl useraccountdaoimpl=(UserAccountDaoImpl) applicationContext.getBean("userAccountDaoImpl");
+        UserAccountDaoImpl useraccountdaoimpl=(UserAccountDaoImpl) applicationContext.getBean("userAccountDaoImpl");
+        UserAccount user=new UserAccount();
+        user.setId(1l);
+        List<UserAccount> a=useraccountdaoimpl.findAccountById(user);
     }
 }

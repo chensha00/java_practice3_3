@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.entity.OrderInfo">
+    <!-- 定义结果集-->
+    <resultMap id="orderInfoMap" type="com.entity.OrderInfo">
+        <id     property="id"   column="ID" jdbcType="BIGINT" javaType="java.lang.Long"/>
+        <result property="orderNum" column="ORDER_NUM" jdbcType="VARCHAR"/>
+        <result property="orderStatus" column="ORDER_STATUS" jdbcType="TINYINT"/>
+        <result property="buyerUserAccountId" column="BUYER_USER_ACCOUNT_ID" jdbcType="BIGINT"/>
+        <result property="storeGoodsId" column="STORE_GOODS_ID" jdbcType="BIGINT"/>
+        <result property="goodsSumMoney" column="GOODS_SUM_MONEY" jdbcType="DECIMAL"/>
+        <result property="message" column="MESSAGE" jdbcType="VARCHAR"/>
+        <result property="orderTime" column="ORDER_TIME" jdbcType="TIMESTAMP"/>
+        <result property="deliverTime" column="DELIVER_TIME" jdbcType="TIMESTAMP"/>
+        <result property="successTime" column="SUCCESS_TIME" jdbcType="TIMESTAMP"/>
+        <result property="isCancellation" column="IS_CANCELLATION" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <select id="findOrderInfoByBuyer" resultMap="orderInfoMap" >
+    SELECT ID,ORDER_NUM,ORDER_STATUS,BUYER_USER_ACCOUNT_ID,STORE_GOODS_ID,GOODS_SUM_MONEY,MESSAGE,ORDER_TIME,DELIVER_TIME,SUCCESS_TIME,IS_CANCELLATION
+    FROM ORDER_INFO WHERE BUYER_USER_ACCOUNT_ID = ${id}
+    </select>
+
+    <!--<select id="findStoreGoodsById" resultType="com.entity.StoreGoods">-->
+        <!--SELECT ID id,STORE_ID ,GOODS_NAME goodsName,GOODS_NUM goodsNum,GOODS_PRICE goodsPrice,GOODS_DISCOUNT goodsDiscount,GOODS_TYPE_ID ,PRODUCTION_ADDRESS productionAddress,PRODUCED_DATE producedDate,SHELF_LIFE shelfLife,SHELF_LIFE_TYPE shelfLifeType-->
+        <!--FROM STORE_GOODS-->
+        <!--WHERE ID=${id}-->
+    <!--</select>-->
+
+</mapper>

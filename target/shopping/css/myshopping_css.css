@@ -1,0 +1,137 @@
+/*jiangxiangwen*/
+
+/*通用*/
+body{
+    margin:0;
+    padding:0;
+    font-size: 14px;
+    background-color: #ededed;
+}
+a{
+    text-decoration: none;
+}
+/*清除ol标签的样式*/
+ol,ul{
+    list-style: none;
+}
+/*清楚浮动*/
+.clear{
+    clear: both;
+}
+/*左浮动*/
+.float_left{
+    float: left;
+}
+/*右浮动*/
+.float_right{
+    float: right;
+}
+
+
+
+
+
+
+/*整个页面的宽度，自动居中*/
+.body_div{
+    width: 1080px;
+    margin:0 auto;
+}
+/*左侧栏*/
+.left_div{
+    width: 131px;
+}
+/*右侧栏*/
+.right_div{
+    width: 949px;
+}
+
+
+
+
+
+
+
+/*导航栏相关*/
+.nav{
+    width: 949px;
+    height: 65px;
+}
+li:first-child{
+    left: 0px;
+    font-size: 30px;
+    font-family: 楷体;
+    color: chocolate;
+    font-style: italic;
+}
+ul li,a{
+    line-height: 20px;
+    text-align: center;
+    float:left;
+    left: 0px;
+    padding:5px 20px;
+    color: chocolate;
+}
+/*导航栏左侧相关*/
+.left_nav{
+    width: 609px;
+}
+/*右侧导航栏相关*/
+.right_nav{
+    width:300px;
+    padding: 20px;
+}
+
+
+
+
+
+/*用户信息相关*/
+.user_info_div{
+    margin-left: 70px;
+}
+/*用户名称*/
+.user_info_div h2{
+    color: rgb(50, 50, 50);
+
+}
+/* 注册日期*/
+.user_register_date{
+    color: #8d8885;
+    font-size: 11px;
+    margin-left: 500px;
+}
+/*余额*/
+.user_info_div p{
+    margin-left:85px;
+}
+
+
+
+
+
+/*用户订单相关*/
+.user_order_info h3{
+    color: #8d8885;
+}
+
+.order_info_table{
+    width: 949px;
+    border: 1px solid gainsboro;
+    text-align: center;
+}
+.order_info_table img{
+    width: 98px;
+    height: 98px;
+}
+.order_info_table td{
+    width: 100px;
+    border: 1px solid slateblue;
+    margin: 0;
+    padding: 0;
+    border-left: none;
+    border-right: none;
+}
+.order_info_table span{
+    font-size: 12px;
+}

@@ -1,6 +1,8 @@
 package com.controler;
 
+import com.entity.OrderInfo;
 import com.entity.UserAccount;
+import com.service.OrderInfoServiceImpl;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.service.SpringContextUtil;
@@ -11,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/myshopping")
@@ -36,17 +39,18 @@ public class MyShoppingServlet extends HttpServlet {
 
         UserAccount user1=userAccountService.findUser(user).get(0);
         //查询人员所对应的订单
-//        List<OrderInfo> orderInfoList=businession.findOrderByUserAccountId(user.getId().toString());
+        OrderInfoServiceImpl orderInfoService=(OrderInfoServiceImpl) SpringContextUtil.getBean("orderInfoServiceImpl");
+        List<OrderInfo> orderInfoList=orderInfoService.findOrderList(user);
 
 
 
 
         request.setCharacterEncoding("UTF-8");
         //账户
-        request.setAttribute("user",user);
+        request.setAttribute("user",user1);
 
         //账户相关订单
-//        request.setAttribute("list",orderInfoList);
+        request.setAttribute("list",orderInfoList);
 
         //请求转发
         request.getRequestDispatcher("/jsp/myshopping.jsp").forward(request,response);

@@ -24,7 +24,7 @@ import java.util.List;
 @Service("userAccountServiceImpl")
 public class UserAccountServiceImpl {
 
-    @Autowired
+   @Autowired
    private  UserAccountDaoImpl userAccountDao;
 
    public List<UserAccount> findUser(UserAccount user){
