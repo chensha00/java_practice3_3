@@ -94,7 +94,7 @@ public class UserAccount {
         return id;
     }
 
-    public UserAccount setId(Long id) {
+    public entity.UserAccount setId(Long id) {
         this.id = id;
         return this;
     }
@@ -103,7 +103,7 @@ public class UserAccount {
         return userName;
     }
 
-    public UserAccount setUserName(String userName) {
+    public entity.UserAccount setUserName(String userName) {
         this.userName = userName;
         return this;
     }
@@ -112,7 +112,7 @@ public class UserAccount {
         return userPassWord;
     }
 
-    public UserAccount setUserPassWord(String userPassWord) {
+    public entity.UserAccount setUserPassWord(String userPassWord) {
         this.userPassWord = userPassWord;
         return this;
     }
@@ -121,7 +121,7 @@ public class UserAccount {
         return payPassWord;
     }
 
-    public UserAccount setPayPassWord(Integer payPassWord) {
+    public entity.UserAccount setPayPassWord(Integer payPassWord) {
         this.payPassWord = payPassWord;
         return this;
     }
@@ -130,7 +130,7 @@ public class UserAccount {
         return money;
     }
 
-    public UserAccount setMoney(Double money) {
+    public entity.UserAccount setMoney(Double money) {
         this.money = money;
         return this;
     }
@@ -139,7 +139,7 @@ public class UserAccount {
         return phoneNum;
     }
 
-    public UserAccount setPhoneNum(String phoneNum) {
+    public entity.UserAccount setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
         return this;
     }
@@ -148,7 +148,7 @@ public class UserAccount {
         return address;
     }
 
-    public UserAccount setAddress(String address) {
+    public entity.UserAccount setAddress(String address) {
         this.address = address;
         return this;
     }
@@ -157,7 +157,7 @@ public class UserAccount {
         return registerTime;
     }
 
-    public UserAccount setRegisterTime(Date registerTime) {
+    public entity.UserAccount setRegisterTime(Date registerTime) {
         this.registerTime = registerTime;
         return this;
     }
@@ -166,7 +166,7 @@ public class UserAccount {
         return isBuyer;
     }
 
-    public UserAccount setIsBuyer(Byte isBuyer) {
+    public entity.UserAccount setIsBuyer(Byte isBuyer) {
         this.isBuyer = isBuyer;
         return this;
     }
@@ -175,7 +175,7 @@ public class UserAccount {
         return isFreezing;
     }
 
-    public UserAccount setIsFreezing(Byte isFreezing) {
+    public entity.UserAccount setIsFreezing(Byte isFreezing) {
         this.isFreezing = isFreezing;
         return this;
     }
@@ -184,7 +184,7 @@ public class UserAccount {
         return isLost;
     }
 
-    public UserAccount setIsLost(Byte isLost) {
+    public entity.UserAccount setIsLost(Byte isLost) {
         this.isLost = isLost;
         return this;
     }
@@ -193,7 +193,7 @@ public class UserAccount {
         return isDelete;
     }
 
-    public UserAccount setIsDelete(Byte isDelete) {
+    public entity.UserAccount setIsDelete(Byte isDelete) {
         this.isDelete = isDelete;
         return this;
     }
