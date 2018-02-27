@@ -1,5 +1,9 @@
 package controler;
 
+import org.apache.ibatis.jdbc.SQL;
+import service.StoreGoodsService;
+import service.StoreGoodsServiceImpl;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,15 +22,23 @@ public class StoreGoods extends HttpServlet {
             e.printStackTrace();
         }
     }
+    protected static StoreGoodsServiceImpl storeGoodsService=new StoreGoodsServiceImpl();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        //链接
         Connection conn = null;
+        //接口
         PreparedStatement ps = null;
+        //结果
         ResultSet rs = null;
         try {
-            List<StoreGoods> userList = new ArrayList<>();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/java", "root", "123456");
-            ps = conn.prepareStatement("INSERT INTO item_info (NAME ,NUMBER ) VALUES (?,? )");
+//            List<StoreGoods> userList = new ArrayList<>();
+            //驱动获得链接
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/day1212/shop", "root", "123456");
+            ps = conn.prepareStatement("INSERT INTO store_goods (GOODS_NAME ,GOODS_NUM ) VALUES (?,? )");
+//            ps=conn.createStatement("insert");
+            //执行命令
             rs = ps.executeQuery();
             while(rs.next()){
                 String name = rs.getString("userName");
@@ -34,7 +46,7 @@ public class StoreGoods extends HttpServlet {
 //                User user = new User(name, number);
 //                userList.add(user);
             }
-            req.setAttribute("userList", userList);
+//            req.setAttribute("userList", userList);
             req.getRequestDispatcher("StoreGoods.jsp").forward(req, resp);
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,10 +55,10 @@ public class StoreGoods extends HttpServlet {
                 if(rs != null){
                     rs.close();
                 }
-                if(ps!=null){
+                if(ps !=null){
                     ps.close();
                 }
-                if(conn!=null){
+                if(conn !=null){
                     conn.close();
                 }
             } catch (SQLException e) {
@@ -54,6 +66,7 @@ public class StoreGoods extends HttpServlet {
             }
         }
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doGet(req, resp);
